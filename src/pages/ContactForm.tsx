@@ -45,7 +45,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+    <section id="contact" className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-8">
         {success ? (
           <div className="text-center py-12">
@@ -125,6 +125,6 @@ export default function ContactPage() {
           </>
         )}
       </div>
-    </div>
+    </section>
   );
 }

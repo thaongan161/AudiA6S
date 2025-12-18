@@ -3,23 +3,20 @@
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 
-import Section from "@/components/Section";
+import Section from "@/components/ParallaxEffect/Section";
 import HeroSection from "@/components/HeroSection";
 import Overview from "./Overview";
 
 import BgIntro from "@/../public/AudiA6SIntro.jpg";
+import A250151_large from "@/../public/A250151_large.gif";
+
 import EngineSection from "./EngineSection";
-import ExperienceHero from "@/components/ExperienceHero";
-import DrivingExperience from "@/components/DrivingExperience";
-import InteriorExperience from "@/components/InteriorExperience";
-import TechnologyExperience from "@/components/TechnologyExperience";
-import HorizontalWrapper from "@/components/HorizontalWrapper";
-import ParallaxSection from "@/components/ParallaxSection";
-import ContactPage from "./ContactForm";
+
 import ContactForm from "./ContactForm";
+import ExperienceSection from "./ExperienceSection";
 
 export default function Home() {
-  const bg1 = "/experience.jpg";
+
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -40,7 +37,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Overview Section with background image */}
-      <Section image={BgIntro}>
+      <Section image={A250151_large}>
         <Overview />
       </Section>
 
@@ -48,43 +45,8 @@ export default function Home() {
         <EngineSection />
       </Section>
       
-      <HorizontalWrapper>
-        <ParallaxSection
-          bg={bg1}
-          direction="both"
-          parallax
-          center={false}
-        >
-          <ExperienceHero />
-        </ParallaxSection>
-
-        <ParallaxSection
-          bg={bg1}
-          direction="both"
-          parallax
-          center={false}
-        >
-          <DrivingExperience />
-        </ParallaxSection>
-
-        <ParallaxSection
-          bg={bg1}
-          direction="both"
-          parallax
-          center={false}
-        >
-          <InteriorExperience />
-        </ParallaxSection>
-
-        <ParallaxSection
-          bg={bg1}
-          direction="both"
-          parallax
-          center={false}
-        >
-          <TechnologyExperience />
-        </ParallaxSection>
-      </HorizontalWrapper>
+      <ExperienceSection />
+      
       <ContactForm />
     </main>
   );

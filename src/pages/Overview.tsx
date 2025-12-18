@@ -24,7 +24,7 @@ const highlights = [
 
 export default function Overview(): JSX.Element {
   return (
-    <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+    <section id="overview" className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
       {/* LEFT – TEXT */}
       <div className="space-y-10">
         <span className="uppercase tracking-[0.35em] text-xs text-red-500">
@@ -86,6 +86,6 @@ export default function Overview(): JSX.Element {
           </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
