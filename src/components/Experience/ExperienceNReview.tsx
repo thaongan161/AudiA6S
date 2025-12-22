@@ -72,7 +72,7 @@ export default function ExperienceNReview(): JSX.Element {
                 transition={{ duration: 0.6 }}
                 className="absolute"
               >
-                <p className="text-lg italic">"{quotes[currentQuote].text}"</p>
+                <p className="text-lg italic">{quotes[currentQuote].text}</p>
                 <p className="mt-2 text-sm text-red-500">— {quotes[currentQuote].author}</p>
               </motion.div>
             </AnimatePresence>
