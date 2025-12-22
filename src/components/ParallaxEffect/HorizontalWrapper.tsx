@@ -35,7 +35,7 @@ export default function HorizontalWrapper({ children }: { children: React.ReactN
           {Children.map(children, (child, idx) =>
             isValidElement(child) ? (
               <div key={idx} className="w-full h-full flex-shrink-0">
-                {cloneElement(child, {
+                {cloneElement(child as any, {
                   horizontalProgress: scrollYProgress,
                   horizontal: true,
                 })}
