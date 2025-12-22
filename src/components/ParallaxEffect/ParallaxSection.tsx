@@ -2,7 +2,6 @@
 
 import React,{ useRef } from "react";
 import { MotionValue, useScroll, useTransform } from "framer-motion";
-import { useSnapSection } from "@/hooks/useSnapSection";
 import ParallaxBackground from "./ParallaxBackground";
 
 interface SectionProps {
@@ -27,8 +26,6 @@ export default function ParallaxSection({
   horizontalProgress,
 }: SectionProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-
-  // useSnapSection(ref);
 
   const { scrollYProgress } = useScroll({
     target: ref,

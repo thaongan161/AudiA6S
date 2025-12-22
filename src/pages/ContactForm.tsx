@@ -107,7 +107,7 @@ export default function ContactPage() {
                 required
                 placeholder="Message"
                 rows={5}
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                className="w-full p-3 text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
               />
 
               <button

@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import Image, { StaticImageData } from "next/image";
+import { useSnapSection } from "@/hooks/useSnapSection";
 
 interface SectionProps {
   image: StaticImageData;
@@ -9,6 +10,8 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ image, children }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
+  
+  useSnapSection(sectionRef);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,

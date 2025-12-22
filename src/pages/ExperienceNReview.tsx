@@ -49,7 +49,7 @@ export default function ExperienceNReview(): JSX.Element {
   }, [isInView]);
 
   return (
-    <section ref={containerRef} className="min-h-screen py-40 px-[10%] text-white">
+    <section id="experience" ref={containerRef} className="min-h-screen py-40 px-[10%] text-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
 
         {/* LEFT — Info + Carousel + Stats */}

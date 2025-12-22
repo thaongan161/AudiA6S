@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 
 import Section from "@/components/ParallaxEffect/Section";
@@ -8,12 +8,14 @@ import HeroSection from "@/components/HeroSection";
 import Overview from "./Overview";
 
 import BgIntro from "@/../public/AudiA6SIntro.jpg";
+import m_A251212_large from "@/../public/m_A251212_large.jpg";
 import A250151_large from "@/../public/A250151_large.gif";
 
 import EngineSection from "./EngineSection";
 
 import ContactForm from "./ContactForm";
-import ExperienceSection from "./ExperienceSection";
+// import ExperienceSection from "./ExperienceSection";
+import ExperienceNReview from "@/pages/ExperienceNReview";
 
 export default function Home() {
 
@@ -31,7 +33,7 @@ export default function Home() {
       lenis.destroy();
     };
   }, []);
-
+  
   return (
     <main className="min-h-screen">
       <HeroSection />
@@ -45,8 +47,10 @@ export default function Home() {
         <EngineSection />
       </Section>
       
-      <ExperienceSection />
-      
+      {/* <ExperienceSection /> */}
+      <Section image={m_A251212_large}>
+        <ExperienceNReview />
+      </Section>
       <ContactForm />
     </main>
   );

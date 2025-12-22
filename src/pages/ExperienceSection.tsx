@@ -3,7 +3,7 @@
 import ExperienceHero from "@/components/Experience/ExperienceHero";
 import ParallaxSection from "@/components/ParallaxEffect/ParallaxSection";
 import HorizontalWrapper from "@/components/ParallaxEffect/HorizontalWrapper";
-import ExperienceNReview from "@/components/Experience/ExperienceNReview";
+import ExperienceNReview from "@/pages/ExperienceNReview";
 
 export default function ExperienceSection(): JSX.Element {
   const e1 = "/experience.jpg";
