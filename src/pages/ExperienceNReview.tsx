@@ -7,15 +7,15 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 const quotes = [
   {
     text: "The Audi A6 S-Line is a perfect balance of performance and luxury.",
-    author: "MotorTrend"
+    author: "MotorTrend",
   },
   {
     text: "A refined driving experience with intuitive technology inside.",
-    author: "TopGear"
+    author: "TopGear",
   },
   {
     text: "Comfortable, elegant, and sporty—this is Audi perfection.",
-    author: "Autocar"
+    author: "Autocar",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function ExperienceNReview(): JSX.Element {
   const [currentQuote, setCurrentQuote] = useState(0);
   const videoRef = useRef<HTMLIFrameElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { amount: 0.5 });
+  const isInView = useInView(containerRef, { amount: 0.4 });
 
   // ⭐ Carousel auto
   useEffect(() => {
@@ -43,26 +43,40 @@ export default function ExperienceNReview(): JSX.Element {
   // 🕹 Auto play video when in view
   useEffect(() => {
     if (!videoRef.current) return;
-    const src = "https://www.youtube.com/embed/rJ5z2772o3s?autoplay=1&mute=0&controls=1&enablejsapi=1";
-    if (isInView) videoRef.current.src = src;
-    else videoRef.current.src = src.replace("autoplay=1", "autoplay=0");
+    const base =
+      "https://www.youtube.com/embed/rJ5z2772o3s?mute=1&controls=1&enablejsapi=1";
+
+    videoRef.current.src = isInView
+      ? `${base}&autoplay=1`
+      : `${base}&autoplay=0`;
   }, [isInView]);
 
   return (
-    <section id="experience" ref={containerRef} className="min-h-screen py-40 px-[10%] text-white">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-
+    <section
+      id="experience"
+      ref={containerRef}
+      className="
+        text-white
+        px-4 sm:px-6 md:px-8
+        py-6 sm:py-8 lg:py-40
+        min-h-[auto] lg:min-h-screen
+      "
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-20 items-start">
         {/* LEFT — Info + Carousel + Stats */}
-        <div className="space-y-10">
-          <h2 className="text-5xl font-serif leading-tight">Experience & Reviews</h2>
+        <div className="space-y-2 sm:space-y-3 lg:space-y-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif leading-tight">
+            Experience & Reviews
+          </h2>
 
-          <p className="text-lg text-white/80 leading-relaxed">
-            The all‑new Audi A6 S‑Line captivates with its refined aesthetic language,
-            balancing sporty allure with timeless elegance in every curve and surface.
+          <p className="text-sm sm:text-base lg:text-lg text-white/80 leading-relaxed max-w-[60ch]">
+            The all-new Audi A6 S-Line captivates with its refined aesthetic
+            language, balancing sporty allure with timeless elegance in every
+            curve and surface.
           </p>
 
           {/* ⭐ Carousel Quotes */}
-          <div className="relative h-32 overflow-hidden">
+          <div className="relative h-24 sm:h-28 lg:h-32 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentQuote}
@@ -72,37 +86,55 @@ export default function ExperienceNReview(): JSX.Element {
                 transition={{ duration: 0.6 }}
                 className="absolute"
               >
-                <p className="text-lg italic">{quotes[currentQuote].text}</p>
-                <p className="mt-2 text-sm text-red-500">— {quotes[currentQuote].author}</p>
+                <p className="text-sm sm:text-base lg:text-lg italic">
+                  {quotes[currentQuote].text}
+                </p>
+                <p className="mt-1 text-xs sm:text-sm text-red-500">
+                  — {quotes[currentQuote].author}
+                </p>
               </motion.div>
             </AnimatePresence>
           </div>
 
           {/* 📊 Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-2">
             {stats.map((s) => (
-              <div key={s.label} className="bg-white/10 p-6 rounded-2xl text-center">
-                <p className="text-red-500 uppercase text-xs">{s.label}</p>
-                <p className="mt-2 text-2xl font-semibold">{s.value}</p>
+              <div
+                key={s.label}
+                className="bg-white/10 p-2 sm:p-4 rounded-2xl text-center"
+              >
+                <p className="text-red-500 uppercase text-xs sm:text-xs">
+                  {s.label}
+                </p>
+                <p className="mt-1 sm:mt-2 text-xl sm:text-2xl font-semibold">
+                  {s.value}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* RIGHT — Video (portrait / phone style) */}
-        <div className="flex justify-center items-start">
-          <div className="w-[250px] sm:w-[280px] md:w-[300px] lg:w-[320px] aspect-[9/16] rounded-3xl overflow-hidden shadow-xl border border-white/10">
+        {/* RIGHT — Video */}
+        <div className="flex justify-center lg:justify-center mt-4 lg:mt-0">
+          <div
+            className="
+              w-[120px] sm:w-[180px] md:w-[200px] lg:w-[320px]
+              aspect-[9/16]
+              rounded-3xl
+              overflow-hidden
+              shadow-xl
+              border border-white/10
+            "
+          >
             <iframe
               ref={videoRef}
               className="w-full h-full"
-              src="https://www.youtube.com/embed/rJ5z2772o3s?autoplay=0&mute=1&controls=1&enablejsapi=1"
               title="Audi A6 S Experience"
               allow="autoplay; encrypted-media; picture-in-picture"
               allowFullScreen
             />
           </div>
         </div>
-
       </div>
     </section>
   );
