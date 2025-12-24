@@ -12,20 +12,35 @@ const STORY = [
 
 export default function EngineStoryInfinite(): JSX.Element {
   return (
-    <div className="relative h-[460px] overflow-hidden max-w-2xl">
-      {/* Mask top & bottom (optional, luxury fade) */}
+    <div
+      className="
+        relative overflow-hidden max-w-2xl
+        h-[460px]
+        max-lg:h-[360px]
+        max-md:h-[260px]
+      "
+    >
+      {/* Mask top & bottom */}
       <div className="pointer-events-none absolute top-0 left-0 w-full h-16 z-10" />
       <div className="pointer-events-none absolute bottom-0 left-0 w-full h-16 z-10" />
 
       <motion.div
         className="
-          space-y-10
           text-white/80
           text-lg
           leading-8
+          space-y-10
           max-w-[60ch]
-        "
 
+          max-lg:text-base
+          max-lg:leading-7
+          max-lg:space-y-6
+
+          max-md:text-sm
+          max-md:leading-6
+          max-md:space-y-4
+          max-md:max-w-[44ch]
+        "
         animate={{ y: ["0%", "-50%"] }}
         transition={{
           duration: 28,
@@ -33,9 +48,15 @@ export default function EngineStoryInfinite(): JSX.Element {
           repeat: Infinity,
         }}
       >
-        {/* Duplicate content for seamless loop */}
         {[...STORY, ...STORY].map((text, index) => (
-          <p key={index} className="max-w-[55ch]">
+          <p
+            key={index}
+            className="
+              max-w-[55ch]
+              max-lg:max-w-[48ch]
+              max-md:max-w-full
+            "
+          >
             {text}
           </p>
         ))}

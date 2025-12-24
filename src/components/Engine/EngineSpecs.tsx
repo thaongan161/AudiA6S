@@ -28,11 +28,27 @@ const specs: Spec[] = [
 
 export default function EngineSpecs(): JSX.Element {
   return (
-    <div className="space-y-10">
-        <br></br>
+    <div
+      className="
+        w-full
+        space-y-6
+        max-lg:space-y-4
+        max-md:space-y-0
+      "
+    >
+      {/* Spacer đồng bộ với Story */}
+      <div
+        className="
+          h-8
+          max-lg:h-6
+          max-md:h-0        
+        "
+      />
+
       {specs.map((item) => (
         <SpecCard key={item.label} {...item} />
       ))}
     </div>
   );
 }
+

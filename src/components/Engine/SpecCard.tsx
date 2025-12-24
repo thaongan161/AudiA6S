@@ -20,13 +20,34 @@ export default function SpecCard({
       animate="rest"
       className="group cursor-pointer"
     >
-      <div className="px-8 py-6">
+      <div
+        className="
+          px-8 py-6
+          max-lg:px-6 max-lg:py-5
+          max-md:px-4 max-md:py-4
+        "
+      >
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <span className="uppercase tracking-widest text-xs text-white/80">
+        <div className="flex items-center justify-between gap-4">
+          <span
+            className="
+              uppercase tracking-widest text-xs text-white/80
+              max-md:text-[10px]
+            "
+          >
             {label}
           </span>
-          <span className="text-2xl font-light">{value}</span>
+
+          <span
+            className="
+              text-2xl font-light
+              max-lg:text-xl
+              max-md:text-lg
+              whitespace-nowrap
+            "
+          >
+            {value}
+          </span>
         </div>
 
         {/* Divider */}
@@ -36,7 +57,10 @@ export default function SpecCard({
             hover: { width: "100%" },
           }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="h-px bg-red-500 my-4"
+          className="
+            h-px bg-red-500 my-4
+            max-md:my-3
+          "
         />
 
         {/* Description */}
@@ -46,8 +70,13 @@ export default function SpecCard({
             hover: { opacity: 1, height: "auto" },
           }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="text-sm text-white/70 overflow-hidden max-w-[42ch]"
-        >
+          className="
+            text-sm text-white/70 overflow-hidden max-w-[42ch]
+            max-lg:max-w-[38ch]
+            max-md:text-xs max-md:max-w-[32ch]
+            max-md:opacity-100 max-md:h-auto
+          "
+        >s
           {desc}
         </motion.p>
       </div>

@@ -24,28 +24,62 @@ const highlights = [
 
 export default function Overview(): JSX.Element {
   return (
-    <section id="overview" className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+    <section
+      id="overview"
+      className="
+        mx-auto
+        max-w-[1400px]
+        px-16 lg:px-12 md:px-8 px-4
+        grid
+        grid-cols-1
+        lg:grid-cols-2
+        gap-[clamp(3rem,7vw,6rem)]
+        items-center
+      "
+    >
       {/* LEFT – TEXT */}
-      <div className="space-y-10">
+      <div className="space-y-10 md:space-y-8">
         <span className="uppercase tracking-[0.35em] text-xs text-red-500">
           Overview
         </span>
 
-        <h2 className="text-4xl md:text-5xl font-serif leading-tight">
+        <h2
+          className="
+            font-serif
+            leading-tight
+            text-[clamp(2.1rem,4vw,3.2rem)]
+          "
+        >
           Intelligence,
           <br />
           expressed with elegance.
         </h2>
 
-        <p className="text-white/75 leading-relaxed max-w-[45ch]">
+        <p
+          className="
+            text-white/75
+            leading-relaxed
+            max-w-[45ch]
+            md:max-w-[42ch]
+            max-md:max-w-full
+          "
+        >
           The Audi A6 balances progressive design with intelligent technology,
           delivering a composed driving experience defined by confidence
           and precision.
         </p>
       </div>
 
-      {/* RIGHT – HOVER CARDS */}
-      <div className="grid sm:grid-cols-2 gap-10">
+      {/* RIGHT – CARDS */}
+      <div
+        className="
+          grid
+          grid-cols-2
+          gap-6
+          sm:gap-8
+          md:gap-10
+        "
+      >
         {highlights.map((item) => (
           <motion.div
             key={item.title}
@@ -54,18 +88,38 @@ export default function Overview(): JSX.Element {
             animate="rest"
             className="relative cursor-pointer"
           >
-            {/* Card container */}
-            <div className="border border-white/20 rounded-2xl px-8 py-6 backdrop-blur-sm bg-white/5">
-              <h3 className="text-lg font-medium mb-2">
+            <div
+              className="
+                border border-white/20
+                bg-white/5
+                backdrop-blur-sm
+
+                rounded-xl sm:rounded-2xl
+                px-4 py-4
+                sm:px-5 sm:py-5
+                md:px-7 md:py-6
+
+                h-full
+              "
+            >
+              <h3
+                className="
+                  font-medium
+                  mb-2
+                  leading-snug
+                  text-[0.85rem]
+                  sm:text-[0.95rem]
+                  md:text-[1rem]
+                "
+              >
                 {item.title}
               </h3>
 
-              {/* Hidden description */}
               <motion.p
                 variants={{
                   rest: {
                     opacity: 0,
-                    y: -10,
+                    y: -8,
                     height: 0,
                   },
                   hover: {
@@ -75,10 +129,18 @@ export default function Overview(): JSX.Element {
                   },
                 }}
                 transition={{
-                  duration: 0.4,
+                  duration: 0.35,
                   ease: "easeOut",
                 }}
-                className="text-sm text-white/70 overflow-hidden"
+                className="
+                  text-white/70
+                  leading-relaxed
+                  overflow-hidden
+
+                  text-[0.75rem]
+                  sm:text-[0.8rem]
+                  md:text-[0.875rem]
+                "
               >
                 {item.desc}
               </motion.p>
